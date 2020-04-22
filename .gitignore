@@ -1,0 +1,18 @@
+/.idea
+/.DS_Store
+###> docker sql data ###
+/etc/infrastructure/database/data
+###< docker sql data ###
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/apps/*/config/secrets/prod/prod.decrypt.private.php
+/apps/*/public/bundles/
+/apps/*/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###

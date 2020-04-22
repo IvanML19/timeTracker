@@ -1,0 +1,57 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.2.5",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "symfony/console": "5.0.*",
+        "symfony/dotenv": "5.0.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/framework-bundle": "5.0.*",
+        "symfony/yaml": "5.0.*"
+    },
+    "require-dev": {
+        "behat/behat": "^3.6",
+        "behat/mink-extension": "dev-patch-4",
+        "behat/mink-browserkit-driver": "dev-symfony-5",
+        "friends-of-behat/symfony-extension": "^2.1"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Timetracker\\Backend\\": "apps/backend/src/",
+            "Timetracker\\Frontend\\": "src/",
+
+            "Timetracker\\": ["src"]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Timetracker\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.0.*"
+        }
+    }
+}

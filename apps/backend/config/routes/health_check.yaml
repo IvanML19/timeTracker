@@ -1,0 +1,4 @@
+health-check_get:
+  path: /health-check
+  controller: Timetracker\Backend\Controller\HealthCheck\HealthCheckGetController
+  methods: [GET]
