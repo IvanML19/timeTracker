@@ -4,18 +4,27 @@ declare(strict_types = 1);
 
 namespace Timetracker\Backend\Controller\Timetracker;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Timetracker\Backend\Timetracker\Application\TimetrackerCreator;
 
 final class TimetrackerPutController
 {
-    public function __invoke(string $id, Request $request)
+    /** @var TimetrackerCreator */
+    private  $creator;
+
+    public function __construct(TimetrackerCreator $timetrackerCreator)
     {
-        return new JsonResponse(
-            [
-                'status' => 'ok put',
-                'id' => $id
-            ], 201
-        );
+        $this->creator = $timetrackerCreator;
+    }
+
+    public function __invoke(string $id, Request $request): Response
+    {
+        $name = $request->get('name');
+        $duration = $request->get('duration');
+
+        $this->creator->__invoke($id, $name, $duration);
+
+        return new Response('', Response::HTTP_CREATED);
     }
 }

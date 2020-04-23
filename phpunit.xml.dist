@@ -30,7 +30,7 @@
 
     <testsuites>
         <testsuite name="Backend">
-            <directory>./tests/apps/backend</directory>
+            <directory>./tests/src</directory>
         </testsuite>
     </testsuites>
 
