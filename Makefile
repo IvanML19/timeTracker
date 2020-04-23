@@ -13,7 +13,7 @@ composer-install composer-update:
 # Docker
 #build: CMD=build --pull --force-rm --no-cache
 start: CMD=up -d
-start-build: CMD=up --build
+start-build: CMD=up --build -d
 stop: CMD=stop
 destroy: CMD=down
 start start-build stop destroy:
@@ -30,4 +30,4 @@ make tests:
 # Install all dependencies
 dependencies: composer-install
 # Install dependencies and run docker-compose up
-run: dependencies start
+run: dependencies start-build
