@@ -13,15 +13,39 @@ final class Timetracker
 
     /**
      * Timetracker constructor.
-     * @param $id
-     * @param $name
-     * @param $duration
+     * @param TimetrackerId $id
+     * @param TimetrackerName $name
+     * @param TimetrackerDuration $duration
      */
-    public function __construct(string $id, string $name, string $duration)
+    public function __construct(TimetrackerId $id, TimetrackerName $name, TimetrackerDuration $duration)
     {
         $this->id = $id;
         $this->name = $name;
         $this->duration = $duration;
+    }
+
+    /**
+     * @return TimetrackerId
+     */
+    public function getId(): TimetrackerId
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return TimetrackerName
+     */
+    public function getName(): TimetrackerName
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return TimetrackerDuration
+     */
+    public function getDuration(): TimetrackerDuration
+    {
+        return $this->duration;
     }
 
 

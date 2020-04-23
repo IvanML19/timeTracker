@@ -9,5 +9,5 @@ interface TimetrackerRepository
 {
     public function save(Timetracker $timetracker): void;
 
-    public function search(string $id): ?Timetracker;
+    public function search(TimetrackerId $id): ?Timetracker;
 }
