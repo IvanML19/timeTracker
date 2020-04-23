@@ -2,11 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace Timetracker\Backend\Controller\HealthCheck;
+namespace Timetracker\Backend\Controller\Timetracker;
+
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-final class HealthCheckGetController
+final class TimetrackerGetController
 {
     public function __invoke()
     {

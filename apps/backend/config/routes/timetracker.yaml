@@ -1,0 +1,14 @@
+timetracker_get:
+  path: /timetracker
+  controller: Timetracker\Backend\Controller\Timetracker\TimetrackerGetController
+  methods: [GET]
+
+timetracker_put:
+  path: /timetracker/{id}
+  controller: Timetracker\Backend\Controller\Timetracker\TimetrackerPutController
+  methods: [PUT]
+
+timetracker_delete:
+  path: /timetracker/{id}
+  controller: Timetracker\Backend\Controller\Timetracker\TimetrackerDeleteController
+  methods: [DELETE]
