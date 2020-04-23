@@ -27,4 +27,4 @@ check-mysql:
 # Install all dependencies
 dependencies: composer-install
 # Install dependencies and run docker-compose up
-build: dependencies start
+run: dependencies start
