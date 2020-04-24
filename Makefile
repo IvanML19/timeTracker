@@ -13,7 +13,7 @@ composer-install composer-update:
 # Docker
 #build: CMD=build --pull --force-rm --no-cache
 start: CMD=up -d
-start-build: CMD=up --build -d
+start-build: CMD=up --build
 stop: CMD=stop
 destroy: CMD=down
 start start-build stop destroy:

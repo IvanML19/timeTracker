@@ -12,13 +12,14 @@ use Timetracker\Backend\Timetracker\Domain\TimetrackerRepository;
 
 final class TimetrackerCreator
 {
+    /*
     private $repository;
 
     public function __construct(TimetrackerRepository $timetrackerRepository)
     {
         $this->repository = $timetrackerRepository;
     }
-
+    */
     public function __invoke(string $id, string $name, string $duration)
     {
         /** @var Timetracker $timeTracker */
@@ -27,6 +28,6 @@ final class TimetrackerCreator
         $timetrackerDuration = new TimetrackerDuration($duration);
         $timeTracker = new Timetracker($timetrackerId, $timetrackerName, $timetrackerDuration);
 
-        $this->repository->save($timeTracker);
+        //$this->repository->save($timeTracker);
     }
 }
