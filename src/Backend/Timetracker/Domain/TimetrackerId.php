@@ -8,5 +8,4 @@ use Timetracker\Shared\ValueObject\UuidVO;
 
 class TimetrackerId extends UuidVO
 {
-
 }

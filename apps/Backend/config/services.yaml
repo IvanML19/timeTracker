@@ -11,7 +11,7 @@ wouterj_eloquent:
     host:     '%env(MYSQL_HOST)%'
     port:     '%env(MYSQL_PORT)%'
     database: '%env(MYSQL_DATABASE)%'
-    username: '%env(MYSQL_USER)%'
+    username: '%env(MYSQL_USER_ROOT)%'
     password: '%env(MYSQL_PASSWORD)%'
     prefix:   ~
     eloquent: ~
@@ -38,3 +38,7 @@ services:
     # please note that last definitions always *replace* previous ones
     Timetracker\:
         resource: '../../../src'
+
+    #####################
+    Timetracker\Backend\Timetracker\Domain\TimetrackerRepository:
+        '@Timetracker\Backend\Timetracker\Infrastructure\Persistence\EloquentTimetrackerRepository'

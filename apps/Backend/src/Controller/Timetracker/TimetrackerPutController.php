@@ -7,7 +7,6 @@ namespace Timetracker\Backend\Controller\Timetracker;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Timetracker\Backend\Timetracker\Application\TimetrackerCreator;
-use Timetracker\Backend\Timetracker\Domain\TimetrackerId;
 
 final class TimetrackerPutController
 {
@@ -21,8 +20,10 @@ final class TimetrackerPutController
 
     public function __invoke(string $id, Request $request): Response
     {
-        $name = $request->get('name');
-        $duration = $request->get('duration');
+        $name = 'PEPE';
+        $duration = '32';
+        //$name = $request->get('name');
+        //$duration = $request->get('duration');
 
         $this->creator->__invoke($id, $name, $duration);
 

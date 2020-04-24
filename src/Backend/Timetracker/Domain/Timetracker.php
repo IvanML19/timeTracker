@@ -9,19 +9,19 @@ final class Timetracker
 {
     private $id;
     private $name;
-    private $duration;
+    private $time;
 
     /**
      * Timetracker constructor.
      * @param TimetrackerId $id
      * @param TimetrackerName $name
-     * @param TimetrackerDuration $duration
+     * @param TimetrackerTime $time
      */
-    public function __construct(TimetrackerId $id, TimetrackerName $name, TimetrackerDuration $duration)
+    public function __construct(TimetrackerId $id, TimetrackerName $name, TimetrackerTime $time)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->duration = $duration;
+        $this->time = $time;
     }
 
     /**
@@ -41,11 +41,11 @@ final class Timetracker
     }
 
     /**
-     * @return TimetrackerDuration
+     * @return TimetrackerTime
      */
-    public function getDuration(): TimetrackerDuration
+    public function getTime(): TimetrackerTime
     {
-        return $this->duration;
+        return $this->time;
     }
 
 

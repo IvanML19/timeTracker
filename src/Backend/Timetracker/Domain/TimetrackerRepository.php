@@ -7,7 +7,9 @@ namespace Timetracker\Backend\Timetracker\Domain;
 
 interface TimetrackerRepository
 {
+    public function getAll();
+
     public function save(Timetracker $timetracker): void;
 
-    public function search(TimetrackerId $id): ?Timetracker;
+    public function findById(TimetrackerId $id): ?Timetracker;
 }
