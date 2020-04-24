@@ -1,5 +1,5 @@
 /.idea
-/.DS_Store
+**/.DS_Store
 ###> docker sql data ###
 /etc/infrastructure/database/data
 ###< docker sql data ###

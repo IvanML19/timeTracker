@@ -1,1 +1,46 @@
-Home!!! skere
+<!DOCTYPE html>
+<html>
+<head>
+    <title>:DEGUSTA BOX - Time tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/build.css" crossorigin="anonymous">
+</head>
+    <body>
+        <nav class="navbar navbar-light bg-degustabox">
+            <a class="navbar-brand" href="#">
+                <img src="img/degustabox.svg" alt="">
+            </a>
+        </nav>
+        <div class="container">
+            <!-- Content -->
+            <div class="row">
+                <div class="col-sm col-md-6 center-button">
+                    <button id="timer" class="selected-tab">TIMER</button>
+                </div>
+
+                <div class="col-sm col-md-6 center-button">
+                    <button id="list" class="unselected-tab">LIST</button>
+                </div>
+            </div>
+
+            <div class="row" style="border: 1px solid black;">
+                <div id="timer-tab" class="col-sm-12" style="background-color: grey; min-height: 500px;">
+                    <div class="row" style="height: 250px;">
+
+                    </div>
+                </div>
+                <div id="list-tab" class="col-sm-12" style="background-color: cornflowerblue; min-height: 500px; display: none;">
+                    <div class="row" style=" height: 250px;">
+
+                    </div>
+                </div>
+            </div>
+            <!-- Endcontent-->
+        </div>
+    </body>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/build.js" crossorigin="anonymous"></script>
+</html>
