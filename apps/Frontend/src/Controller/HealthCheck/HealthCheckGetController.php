@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Timetracker\Backend\Controller\HealthCheck;
+namespace Timetracker\Frontend\Controller\HealthCheck;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -12,7 +12,7 @@ final class HealthCheckGetController
     {
         return new JsonResponse(
             [
-                'backend-status' => 'ok',
+                'frontend-status' => 'ok',
             ]
         );
     }

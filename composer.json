@@ -23,7 +23,7 @@
     "autoload": {
         "psr-4": {
             "Timetracker\\Backend\\": "apps/Backend/src/",
-            "Timetracker\\Frontend\\": "src/",
+            "Timetracker\\Frontend\\": "apps/Frontend/src/",
 
             "Timetracker\\": ["src"]
         }
