@@ -9,7 +9,9 @@ interface TimetrackerRepository
 {
     public function getAll();
 
-    public function save(Timetracker $timetracker): void;
-
     public function findById(TimetrackerId $id): ?Timetracker;
+
+    public function persist(Timetracker $timetracker): void;
+
+    public function delete(TimetrackerId $id): void;
 }

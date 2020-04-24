@@ -4,8 +4,9 @@ declare(strict_types = 1);
 
 namespace Timetracker\Backend\Timetracker\Domain;
 
+use JsonSerializable;
 
-final class Timetracker
+final class Timetracker implements JsonSerializable
 {
     private $id;
     private $name;
@@ -48,5 +49,12 @@ final class Timetracker
         return $this->time;
     }
 
-
+    public function jsonSerialize()
+    {
+        return [
+            'uuid' => $this->getId()->getValue(),
+            'name' => $this->getName()->getValue(),
+            'time' => $this->getTime()->getValue(),
+        ];
+    }
 }

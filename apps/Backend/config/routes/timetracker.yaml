@@ -1,6 +1,6 @@
 timetracker_get:
   path: /timetracker
-  controller: Timetracker\Backend\Controller\Timetracker\TimetrackerGetController
+  controller: Timetracker\Backend\Controller\Timetracker\TimetrackerGetAllController
   methods: [GET]
 
 timetracker_put:

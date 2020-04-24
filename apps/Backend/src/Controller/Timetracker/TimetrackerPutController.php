@@ -11,7 +11,7 @@ use Timetracker\Backend\Timetracker\Application\TimetrackerCreator;
 final class TimetrackerPutController
 {
     /** @var TimetrackerCreator */
-    private  $creator;
+    private $creator;
 
     public function __construct(TimetrackerCreator $timetrackerCreator)
     {
@@ -20,7 +20,8 @@ final class TimetrackerPutController
 
     public function __invoke(string $id, Request $request): Response
     {
-        $name = 'PEPE';
+        // TODO: fix request when FE is done
+        $name = 'PEPASOUPD';
         $duration = '32';
         //$name = $request->get('name');
         //$duration = $request->get('duration');

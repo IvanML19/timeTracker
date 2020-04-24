@@ -10,9 +10,8 @@ use Timetracker\Backend\Timetracker\Domain\TimetrackerId;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerName;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerRepository;
 
-final class TimetrackerCreator
+final class TimetrackerGetAll
 {
-    /** @var TimetrackerRepository */
     private $repository;
 
     public function __construct(TimetrackerRepository $timetrackerRepository)
@@ -20,13 +19,8 @@ final class TimetrackerCreator
         $this->repository = $timetrackerRepository;
     }
 
-    public function __invoke(string $id, string $name, string $time): void
+    public function __invoke(): ?array
     {
-        $timetrackerId = new TimetrackerId($id);
-        $timetrackerName = new TimetrackerName($name);
-        $timetrackerTime = new TimetrackerTime($time);
-        $timeTracker = new Timetracker($timetrackerId, $timetrackerName, $timetrackerTime);
-
-        $this->repository->persist($timeTracker);
+        return $this->repository->getAll();
     }
 }

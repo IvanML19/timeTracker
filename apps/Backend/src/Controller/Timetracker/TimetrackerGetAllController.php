@@ -4,29 +4,33 @@ declare(strict_types = 1);
 
 namespace Timetracker\Backend\Controller\Timetracker;
 
+
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
-use Timetracker\Backend\Timetracker\Application\TimetrackerDeleter;
+use Timetracker\Backend\Timetracker\Application\TimetrackerGetAll;
 use Timetracker\Backend\Timetracker\Infrastructure\Persistence\NotFoundException;
 
-final class TimetrackerDeleteController
+final class TimetrackerGetAllController
 {
-    /** @var TimetrackerDeleter */
-    private $deleter;
+    /** @var TimetrackerGetAll */
+    private $getAllService;
 
-    public function __construct(TimetrackerDeleter $timetrackerDeleter)
+    public function __construct(TimetrackerGetAll $getAllService)
     {
-        $this->deleter = $timetrackerDeleter;
+        $this->getAllService = $getAllService;
     }
 
-    public function __invoke(string $id): JsonResponse
+    public function __invoke()
     {
         try {
-        $this->deleter->__invoke($id);
+            $timetrackers = $this->getAllService->__invoke();
 
-        return new JsonResponse('', Response::HTTP_OK);
-
+            return new JsonResponse([
+                    'status' => 'ok',
+                    'data' => ($timetrackers) ?: [],
+                ], Response::HTTP_OK
+            );
         } catch (NotFoundException $e) {
             return new JsonResponse([
                     'status' => 'ko',
