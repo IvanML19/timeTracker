@@ -1,0 +1,4 @@
+home_get:
+  path: /
+  controller: Timetracker\Frontend\Controller\Home\HomeGetController
+  methods: [GET]
