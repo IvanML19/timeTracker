@@ -1,3 +1,4 @@
+// TODO: Fix CORS problem
 jQuery(document).ready(() => {
     let interval;
     let timer = {
@@ -23,7 +24,14 @@ jQuery(document).ready(() => {
         fadeToggle('#timer-tab', '#list-tab');
         $('#list').removeClass('unselected-tab').addClass('selected-tab');
         $('#timer').removeClass('selected-tab').addClass('unselected-tab');
-        // TODO: GET request
+        $.ajax({
+            type: 'GET',
+            url: 'api.degustabox.local:8010/timetracker',
+        }).done(function () {
+            console.log('SUCCESS');
+        }).fail(function (msg) {
+            console.log('FAIL');
+        });
     });
 
     // Start/stop button
@@ -59,15 +67,34 @@ jQuery(document).ready(() => {
     $('#stop').click(() => {
         fadeToggle('#stop', '#start');
         clearInterval(interval);
+        $.ajax({
+            type: 'PUT',
+            url: '127.0.0.1:8010/timetracker',
+            data: {
+                name: $('input[name="task"]').val(),
+                duration: timer.time
+            },
+        }).done(function () {
+            alert("Information saved.");
+        }).fail(function () {
+            alert('Something went wrong.');
+        });
         $('input[name="task"]').val('');
-        // TODO: PUT request
         timer.reset();
     });
 
     // Delete button
     $('.btn-danger').click(() => {
         let uuid = $(this).attr('data-uuid');
-        // TODO : DELETE request
+        $.ajax({
+            type: 'DELETE',
+            url: '127.0.0.1:8010/timetracker/'+uuid,
+        }).done(function () {
+            alert("Field deleted");
+            $('#'+uuid).remove();
+        }).fail(function () {
+            alert('Something went wrong, please try again');
+        });
     });
 });
 
@@ -76,25 +103,3 @@ function fadeToggle($selectorOut, $selectorIn) {
         $($selectorIn).fadeIn('fast');
     });
 }
-
-/*
-$.ajax({
-    type: 'GET',
-    url: '127.0.0.1:8010/timetracker',
-}).done(function () {
-    console.log('SUCCESS');
-}).fail(function (msg) {
-    console.log('FAIL');
-}).always(function (msg) {
-    console.log('ALWAYS');
-});
-$.ajax({
-    type: 'DELETE',
-    url: '127.0.0.1:8010/timetracker/'+uuid,
-}).done(function () {
-    alert("Field deleted");
-    $('#'+uuid).remove();
-}).fail(function () {
-    alert('Something went wrong, please try again');
-});
- */
