@@ -7,7 +7,7 @@ namespace Timetracker\Backend\Timetracker\Application;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerId;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerRepository;
 
-class TimetrackerDeleter
+final class TimetrackerDeleter
 {
     /** @var TimetrackerRepository */
     private $repository;

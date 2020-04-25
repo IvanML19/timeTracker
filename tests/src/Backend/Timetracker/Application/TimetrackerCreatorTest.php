@@ -25,12 +25,12 @@ class TimetrackerCreatorTest extends TestCase
 
         $id = new TimetrackerId('7309dfe7-3bd1-4696-9458-67c8af9bcbec');
         $name = new TimetrackerName('Timetracker Test');
-        $time = new TimetrackerTime('00:32');
+        $time = new TimetrackerTime(32);
         $timeTracker = new Timetracker($id, $name, $time);
 
-        $repository->method('save')->with($timeTracker);
+        $repository->method('persist')->with($timeTracker);
 
-        $creator->__invoke('7309dfe7-3bd1-4696-9458-67c8af9bcbec', 'Timetracker Test', '00:32');
+        $creator->__invoke('Timetracker Test', '32', '7309dfe7-3bd1-4696-9458-67c8af9bcbec');
     }
 
 }

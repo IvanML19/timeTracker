@@ -4,7 +4,6 @@
 namespace Timetracker\Backend\Timetracker\Domain;
 
 
-use http\Exception\InvalidArgumentException;
 use Timetracker\Shared\ValueObject\StringVO;
 
 class TimetrackerName extends StringVO
@@ -18,7 +17,7 @@ class TimetrackerName extends StringVO
     private function guardNameWithLessThan40Chars(string $value)
     {
         if(strlen($value) > 40) {
-            throw new InvalidArgumentException('Name has more than 40 characters');
+            throw new \InvalidArgumentException('Name has more than 40 characters');
         }
     }
 

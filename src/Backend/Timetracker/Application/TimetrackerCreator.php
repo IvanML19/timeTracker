@@ -21,9 +21,11 @@ final class TimetrackerCreator
         $this->repository = $timetrackerRepository;
     }
 
-    public function __invoke(string $name, string $time): void
+    public function __invoke(string $name, string $time, string $uuid = null): void
     {
-        $uuid = UuidVO::generate();
+        if (null == $uuid) {
+            $uuid = UuidVO::generate();
+        }
 
         $timetrackerId = new TimetrackerId($uuid);
         $timetrackerName = new TimetrackerName($name);

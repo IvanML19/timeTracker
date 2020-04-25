@@ -10,7 +10,7 @@ class TimetrackerTime extends IntVo
 {
     public function __toString(): string
     {
-        return gmdate("H:i:s", 685);
+        return gmdate("H:i:s", $this->getValue());
     }
 
     public static function addTime(TimetrackerTime $timetrackerTime, int $timeToAdd): TimetrackerTime

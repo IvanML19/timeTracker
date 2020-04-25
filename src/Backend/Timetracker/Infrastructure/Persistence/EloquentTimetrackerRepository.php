@@ -27,7 +27,7 @@ class EloquentTimetrackerRepository implements TimetrackerRepository
     public function findById(TimetrackerId $id): ?Timetracker
     {
         /** @var Model */
-        $model = $this->findEloquentModelById($id->getValue());
+        $model = $this->findEloquentModelByName($id->getValue());
 
         if (null == $model) {
             throw new NotFoundException('No timetracker with this id');
@@ -49,7 +49,7 @@ class EloquentTimetrackerRepository implements TimetrackerRepository
 
             $model->uuid = $timetracker->getId();
             $model->name = $timetracker->getName();
-            $model->time = $timetracker->getTime();
+            $model->time = $timetracker->getTime()->getValue();
 
             $model->save();
         } else {

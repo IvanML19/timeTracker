@@ -24,7 +24,7 @@ check-mysql:
 	@docker exec degustabox-mysql mysqladmin --user=root --password=secret --host "127.0.0.1" ping --silent
 
 # Test
-make tests:
+test:
 	./vendor/bin/phpunit
 ########
 # Install all dependencies
