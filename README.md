@@ -11,11 +11,12 @@ and the Model layer that Eloquent provides fits perfectly in that project. If th
 we should change for Doctrine to ensure the workflow of our ORM.
 
 To improve the project, we can implement CQRS and use queues (RabbitMQ for instance) to not collapse our hosts (moving to an
-event driven architecture).
+event driven architecture). Also, for the frontend part we can another framework like React, because we have an API that is 
+providing the Database information.
 
 ## Kick off 🚀
 
-Take a look into **Makefile** to know how to run the project
+Take a look into **Makefile** to know how to run the project and all the commands that are available.
 
 
 ### Pre-requisites 📋
@@ -42,6 +43,8 @@ Composer install is using _hirak/prestissimo_ (https://github.com/hirak/prestiss
 Finally, you can reach the frontend part at: localhost:8020.
 Backend is hosted at localhost:8010.
 
+Last check to see if everything is working fine, is to go to '/status' endpoint for both environments. It should show 'status' => 'ok'.
+
 ## Tests ⚙️
 
 ### End-to-end tests 🔩
@@ -51,11 +54,15 @@ It gives my a lot of problems in terms of versions and so on, so it is only inst
 
 ### Unit tests ⌨️
 
-_**TODO**_
+To run the tests use the following command:
 
 ```
-Da un ejemplo
+make test
 ```
+
+Test folder is using the same structure as I have in src folder. Thanks to this, if any test fails, you know easily 
+where is the error and do not need to look for where is happening.
+
 ## Built with 🛠️
 
 * [Symfony 5](https://symfony.com/)
