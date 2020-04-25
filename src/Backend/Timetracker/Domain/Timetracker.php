@@ -54,7 +54,7 @@ final class Timetracker implements JsonSerializable
         return [
             'uuid' => $this->getId()->getValue(),
             'name' => $this->getName()->getValue(),
-            'time' => $this->getTime()->getValue(),
+            'time' => $this->getTime()->__toString(),
         ];
     }
 }

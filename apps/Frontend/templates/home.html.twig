@@ -17,22 +17,59 @@
                 <div class="col-sm col-md-6 center-button">
                     <button id="timer" class="selected-tab">TIMER</button>
                 </div>
-
                 <div class="col-sm col-md-6 center-button">
                     <button id="list" class="unselected-tab">LIST</button>
                 </div>
             </div>
 
-            <div class="row" style="border: 1px solid black;">
-                <div id="timer-tab" class="col-sm-12" style="background-color: grey; min-height: 500px;">
-                    <div class="row" style="height: 250px;">
-
+            <div class="tabs" class="row">
+                <div id="timer-tab" class="col-sm-12 line-separator">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="taskName">Task name</label>
+                            <input type="name" name="task" class="form-control" id="taskName" maxlength="40" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row timer">
+                        <div class="col-sm-4 text-center">
+                            <span id="hours">0</span> hours
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <span id="minutes">0</span> minutes
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <span id="seconds">0</span> seconds
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-md-12 text-center">
+                            <button id="start">START</button>
+                            <button id="stop">STOP</button>
+                        </div>
                     </div>
                 </div>
-                <div id="list-tab" class="col-sm-12" style="background-color: cornflowerblue; min-height: 500px; display: none;">
-                    <div class="row" style=" height: 250px;">
-
-                    </div>
+                <div id="list-tab" class="col-sm-12 list">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Duration</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="1">
+                                <td>Home page implementation</td>
+                                <td>00:32</td>
+                                <td><button type="button" data-uuid="1"  class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>New promo</td>
+                                <td>00:10</td>
+                                <td><button type="button" data-uuid="2" class="btn btn-danger">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!-- Endcontent-->

@@ -43,7 +43,7 @@ class EloquentTimetrackerRepository implements TimetrackerRepository
     public function persist(Timetracker $timetracker): void
     {
         /** @var Model */
-        $model = $this->findEloquentModelById($timetracker->getId());
+        $model = $this->findEloquentModelByName($timetracker->getName());
         if (null == $model) {
             $model = new TimetrackerEloquentModel();
 
@@ -53,9 +53,9 @@ class EloquentTimetrackerRepository implements TimetrackerRepository
 
             $model->save();
         } else {
-            $model->name = $timetracker->getName();
-            $model->time = $timetracker->getTime();
+            $timetrackerTime = TimetrackerTime::addTime($timetracker->getTime(), $model->time);
 
+            $model->time = $timetrackerTime->getValue();
             $model->update();
         }
     }
@@ -70,8 +70,8 @@ class EloquentTimetrackerRepository implements TimetrackerRepository
         }
     }
 
-    private function findEloquentModelById(string $id): ?Model
+    private function findEloquentModelByName(string $name): ?Model
     {
-        return TimetrackerEloquentModel::find($id);
+        return TimetrackerEloquentModel::where('name', $name)->first();
     }
 }

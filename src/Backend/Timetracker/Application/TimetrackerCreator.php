@@ -9,6 +9,7 @@ use Timetracker\Backend\Timetracker\Domain\TimetrackerTime;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerId;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerName;
 use Timetracker\Backend\Timetracker\Domain\TimetrackerRepository;
+use Timetracker\Shared\ValueObject\UuidVO;
 
 final class TimetrackerCreator
 {
@@ -20,9 +21,11 @@ final class TimetrackerCreator
         $this->repository = $timetrackerRepository;
     }
 
-    public function __invoke(string $id, string $name, string $time): void
+    public function __invoke(string $name, string $time): void
     {
-        $timetrackerId = new TimetrackerId($id);
+        $uuid = UuidVO::generate();
+
+        $timetrackerId = new TimetrackerId($uuid);
         $timetrackerName = new TimetrackerName($name);
         $timetrackerTime = new TimetrackerTime($time);
         $timeTracker = new Timetracker($timetrackerId, $timetrackerName, $timetrackerTime);

@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS `degustabox`.`timetracker` (
   `time` INT NULL,
   `dateadd` DATETIME NOT NULL,
   `dateupd` DATETIME NULL,
-  PRIMARY KEY (`uuid`));
+  PRIMARY KEY (`name`));

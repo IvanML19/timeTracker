@@ -4,7 +4,7 @@ timetracker_get:
   methods: [GET]
 
 timetracker_put:
-  path: /timetracker/{id}
+  path: /timetracker
   controller: Timetracker\Backend\Controller\Timetracker\TimetrackerPutController
   methods: [PUT]
 

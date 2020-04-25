@@ -18,15 +18,12 @@ final class TimetrackerPutController
         $this->creator = $timetrackerCreator;
     }
 
-    public function __invoke(string $id, Request $request): Response
+    public function __invoke(Request $request): Response
     {
-        // TODO: fix request when FE is done
-        $name = 'PEPASOUPD';
-        $duration = '32';
-        //$name = $request->get('name');
-        //$duration = $request->get('duration');
+        $name = $request->get('name');
+        $duration = $request->get('duration');
 
-        $this->creator->__invoke($id, $name, $duration);
+        $this->creator->__invoke($name, $duration);
 
         return new Response('', Response::HTTP_CREATED);
     }

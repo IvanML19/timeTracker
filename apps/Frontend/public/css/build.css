@@ -5,8 +5,8 @@
 }
 /* Tabs */
 .center-button {
+    margin-top: 15px;
     text-align: center;
-    margin-bottom: 15px;
 }
 button {
     border: 0;
@@ -18,11 +18,44 @@ button {
     color: #FFFFFF;
 }
 
-.selected-tab {
+#start, #stop {
+    margin-top: 10px;
+    height: 40px;
+    width: 120px;
+    font-size: 1.1rem;
+}
+#stop {
+    background-color: #dc3545;
+    display: none;
+}
+.selected-tab, #start {
     background-color: #a8de00;
 }
 .unselected-tab {
     background-color: #006f69;
 }
 
-/** Timer box */
+.tabs {
+    margin-top: 30px;
+}
+
+/** Timer, list box */
+.list {
+    display: none;
+}
+.btn-danger {
+    width: auto;
+}
+.line-separator {
+    border-top: 0.01rem solid lightgrey;
+    padding-top: 15px;
+}
+
+.timer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#hours, #minutes, #seconds {
+    font-size: 3rem;
+    font-weight: bold;
+}
