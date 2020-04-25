@@ -45,6 +45,26 @@ Backend is hosted at localhost:8010.
 
 Last check to see if everything is working fine, is to go to '/status' endpoint for both environments. It should show 'status' => 'ok'.
 
+## Backend
+
+I focused the test on that part. I created a DDD approach with Bounded Contexts. You can have in the same repository
+multiples projects. In that case, I have created Backend and Frontend only. But both should go inside a folder called 'Web'
+if we create another app inside the apps folder. 
+
+The apps folder is just handling the entrypoints to our application. The 'core' code is in ./src folder, separated by applications.
+Inside of any bounded contexts, you will see the modules of that context, and inside the modules, the three layers of the application.
+
+If the code is separated in that way, is super clear to look for any functionality/module or even extract them to create another
+bounded contexts if the feature requires it. 
+
+## Frontend
+
+I developed the frontend with Bootstrap + jQuery frameworks. I know that this is very old school, but is the safe way 
+for me to create a page.
+
+The main problem that I have faced here is the CORS. I am not used to prepare new environments from scratch (I am using Docker from 2 months ago)
+and the connection between them was always throwing that kind of error.
+
 ## Tests ⚙️
 
 ### End-to-end tests 🔩
