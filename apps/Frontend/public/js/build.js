@@ -14,7 +14,7 @@ jQuery(document).ready(() => {
         }
     };
     //////////////////////////////////////////////////////////////////////////
-    // Tab management
+    // Tabs logic
     $('#timer').click(()=> {
         fadeToggle('#list-tab', '#timer-tab');
         $('#timer').removeClass('unselected-tab').addClass('selected-tab');
@@ -29,6 +29,7 @@ jQuery(document).ready(() => {
             url: 'api.degustabox.local:8010/timetracker',
         }).done(function () {
             console.log('SUCCESS');
+            $('#list-body').append('<tr id="random-uuid-1"><td>'+$('input[name="task"]').val()+'</td><td>'+timer.time+'</td> <td><button type="button" data-uuid="random-uuid-1" class="btn btn-danger">Delete</button></td> </tr>');
         }).fail(function (msg) {
             console.log('FAIL');
         });
@@ -79,12 +80,15 @@ jQuery(document).ready(() => {
         }).fail(function () {
             alert('Something went wrong.');
         });
+        // TODO: move this logic to list (for each element received)
+        $('#list-body').append('<tr id="random-uuid-1"><td>'+$('input[name="task"]').val()+'</td><td>'+timer.time+'</td> <td><button type="button" data-uuid="random-uuid-1" class="btn btn-danger">Delete</button></td> </tr>');
+        //
         $('input[name="task"]').val('');
         timer.reset();
     });
 
     // Delete button
-    $('.btn-danger').click(() => {
+    $('.btn-danger').click(function() {
         let uuid = $(this).attr('data-uuid');
         $.ajax({
             type: 'DELETE',
@@ -95,6 +99,8 @@ jQuery(document).ready(() => {
         }).fail(function () {
             alert('Something went wrong, please try again');
         });
+        // TODO: move to done
+        $('#'+uuid).remove();
     });
 });
 
