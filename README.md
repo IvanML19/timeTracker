@@ -26,16 +26,12 @@ Basically, you need **docker**. You can dowload it here: https://www.docker.com/
 
 ### Installation 🔧
 
-By running the following **Make command**, the dependencies will be installed and docker will mount all the containers
-
-```
-make run
-```
-
-If you need to only **install dependencies**, you can run:
+By running the following **Make commands**, the dependencies will be installed and docker will mount all the containers.
 
 ```
 make composer-install
+
+make start-build
 ```
 
 Composer install is using _hirak/prestissimo_ (https://github.com/hirak/prestissimo), that improves a lot the speed of the installation of the dependencies.
